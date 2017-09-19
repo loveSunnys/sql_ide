@@ -21,7 +21,7 @@ QSqlDatabase MainWindow::init_db()
     if(QSqlDatabase::contains("qt_sql_default_connection"))
         db = QSqlDatabase::database("qt_sql_default_connection");
     else
-     db = QSqlDatabase::addDatabase(curr_db.db_driver);
+        db = QSqlDatabase::addDatabase(curr_db.db_driver);
     /**连接Oracle数据库
               *数据库名：abc
               *表名：my_oracle
@@ -59,12 +59,7 @@ void MainWindow::on_generateButton_clicked()
     }
     QString func_id;
     func_id = ui->func_id_comboBox->currentText().toUpper().trimmed().remove("'");
-    if( func_id.isEmpty() )
-    {
 
-        QMessageBox::warning(NULL,tr(u8"警告"), tr(u8"功能函数为空"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-        return ;
-    }
     QString t_name;
     t_name =ui->t_name_Edit->text().trimmed().remove("'");
     if( t_name.isEmpty() )
@@ -103,29 +98,37 @@ void MainWindow::on_generateButton_clicked()
     {
         formmag_sql.clear();
     }
-    traninfo_sql = QString("INSERT INTO  TRANINFO (SEQ_NO, INT_TRAN_CODE, FUNC_ID, BIZID, T_NAME, DESCRIBE1, STATUS, VERSION, EFF_DATE, EXP_DATE, CREATED_BY, CREATED_DATE, LAST_UPD_BY, LAST_UPD_DATE) VALUES ("
-                           "(select max(SEQ_NO)+1 from TRANINFO), "
-                           "'%1',"
-                           " '%2', "
-                           "'B%3', "
-                           "'%4',"
-                           " '%5', "
-                           "'1', '1.00.00', sysdate, TO_DATE('2099-12-01', 'YYYY-MM-DD'), 'system', sysdate, 'system', sysdate)")
-            .arg(trancode).arg(func_id).arg(trancode).arg(t_name).arg(t_name);
+
+    if( !func_id.isEmpty() )
+    {
+
+        traninfo_sql = QString("INSERT INTO  TRANINFO (SEQ_NO, INT_TRAN_CODE, FUNC_ID, BIZID, T_NAME, DESCRIBE1, STATUS, VERSION, EFF_DATE, EXP_DATE, CREATED_BY, CREATED_DATE, LAST_UPD_BY, LAST_UPD_DATE) VALUES ("
+                               "(select max(SEQ_NO)+1 from TRANINFO), "
+                               "'%1',"
+                               " '%2', "
+                               "'B%3', "
+                               "'%4',"
+                               " '%5', "
+                               "'1', '1.00.00', sysdate, TO_DATE('2099-12-01', 'YYYY-MM-DD'), 'system', sysdate, 'system', sysdate)")
+                .arg(trancode).arg(func_id).arg(trancode).arg(t_name).arg(t_name);
 
 
-    business_sql = QString("INSERT INTO  BUSINESS (SEQ_NO, BANK_CD, BIZID, TRANID, INPUT1, INPUT2, INPUT3, INPUT5, INPUT4, OUTPUT1, OUTPUT2, OUTPUT3, OUTPUT4, OUTPUT5, UIID, B_NAME, DESCRIBE1, STATUS, FLAG, EFF_DATE, EXP_DATE, VERSION, CREATED_BY, CREATED_DATE, LAST_UPD_BY, LAST_UPD_DATE) VALUES ("
-                           "'0', '00000000000000', "
-                           "'%1', "
-                           "'%2', "
-                           "'B%3', "
-                           "' ', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT',"
-                           " '%4',"
-                           " '%5', "
-                           "'%6', '1', '1', sysdate, TO_DATE('2099-12-31', 'YYYY-MM-DD'), '1.00.00', 'system', sysdate, 'system', sysdate)")
-            .arg(trancode).arg(tranid).arg(trancode).arg(uiid).arg(t_name).arg(t_name);
+        business_sql = QString("INSERT INTO  BUSINESS (SEQ_NO, BANK_CD, BIZID, TRANID, INPUT1, INPUT2, INPUT3, INPUT5, INPUT4, OUTPUT1, OUTPUT2, OUTPUT3, OUTPUT4, OUTPUT5, UIID, B_NAME, DESCRIBE1, STATUS, FLAG, EFF_DATE, EXP_DATE, VERSION, CREATED_BY, CREATED_DATE, LAST_UPD_BY, LAST_UPD_DATE) VALUES ("
+                               "'0', '00000000000000', "
+                               "'B%1', "
+                               "'%2', "
+                               "'%3', "
+                               "' ', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT', 'DEFAULT',"
+                               " '%4',"
+                               " '%5', "
+                               "'%6', '1', '1', sysdate, TO_DATE('2099-12-31', 'YYYY-MM-DD'), '1.00.00', 'system', sysdate, 'system', sysdate)")
+                .arg(trancode).arg(tranid).arg(trancode.toLower()).arg(uiid).arg(t_name).arg(t_name);
 
-
+    }else
+    {
+        traninfo_sql.clear();
+        business_sql.clear();
+    }
 
     bktran_sql = QString("INSERT INTO BKTRAN (SEQ_NO, INT_TRAN_CODE, BANK_CD, FLOWID, UIID, TRANID, CHECKFLAG, T_NAME, DESCRIBE1, STATUS, FLAG, EFF_DATE, EXP_DATE, VERSION, CREATED_BY, CREATED_DATE, LAST_UPD_BY, LAST_UPD_DATE) VALUES ("
                          "(select max(SEQ_NO)+1 from BKTRAN), "
