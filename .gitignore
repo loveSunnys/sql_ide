@@ -1,3 +1,6 @@
 
 sqlIDE.pro.user
 *.user
+*.lib
+*.dll
+sqlIDE.pro.user.dde2911

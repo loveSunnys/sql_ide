@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.2.1, 2017-09-19T19:38:46. -->
 =======
 <!-- Written by QtCreator 4.2.1, 2017-09-17T01:31:20. -->
 >>>>>>> parent of 4da8e9f... 修复biness插入错误
+=======
+<!-- Written by QtCreator 4.2.1, 2017-09-17T15:13:38. -->
+>>>>>>> b25626c5685d5716fcba0fc6e11fb9cbda4f0c80
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -289,8 +293,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">sqlIDE</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">sqlIDE2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/code/qtobjects/sqlIDE/sqlIDE.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/code/githubObj/sql_ide/sqlIDE.pro</value>
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">sqlIDE.pro</value>
