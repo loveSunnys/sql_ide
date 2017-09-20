@@ -83,6 +83,8 @@ typedef QList<Conndb> DBLists;
 DBLists db_list;
 Conndb curr_db;
 Conndb ll;
+
+Conndb asdsad;
 };
 
 #endif // MAINWINDOW_H
