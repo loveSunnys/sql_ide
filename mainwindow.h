@@ -84,7 +84,7 @@ DBLists db_list;
 Conndb curr_db;
 Conndb ll;
 
-Conndb asdsad;
+Conndb ldn;
 };
 
 #endif // MAINWINDOW_H
