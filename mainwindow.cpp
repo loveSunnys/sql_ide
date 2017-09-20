@@ -73,6 +73,7 @@ void MainWindow::on_generateButton_clicked()
         QMessageBox::warning(NULL,tr(u8"警告"), tr(u8"备注为空"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
         return ;
     }
+
     QString tranid;
     tranid = ui->tranid_Edit->text().toUpper().trimmed().remove("'");
     if( tranid.isEmpty() )

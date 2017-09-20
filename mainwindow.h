@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -82,7 +82,7 @@ typedef QList<Conndb> DBLists;
 
 DBLists db_list;
 Conndb curr_db;
-
+Conndb ll;
 };
 
 #endif // MAINWINDOW_H
