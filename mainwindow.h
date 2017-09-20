@@ -1,4 +1,3 @@
-@@ -1,88 +0,0 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
