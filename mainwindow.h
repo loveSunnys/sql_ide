@@ -64,6 +64,10 @@ private slots:
 
     void on_rf_jydmtj_Button_clicked();
 
+    void on_qdsql_db_select_Box_currentIndexChanged(int index);
+
+    void on_qdsql_generate_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
 void multienq_select(QString sql);
@@ -71,6 +75,7 @@ void single_select(QString sql);
 void new_json(QString sql);
 void update_json(QString sql);
 void del_json(QString sql);
+void subsql_json(QString sql);
 
 void set_defalutParameter();
 void set_func_id_Parameter();
